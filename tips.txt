@@ -1,0 +1,11 @@
+//config
+1、读入配置是依靠 main函数中添加的一段lua字符串（load_config）,其中的逻辑是用load 函数
+    加载配置，传入的_ENV 不是全局变量_G 而是一个自定义的表，所以配置里面没法调用print
+    等系统自带函数。
+2、配置当中可以写诸如 $ROOT 像获取环境变量的语法，这不是lua的能力，而是先用os.getenv
+    获得环境后，再字符串替换，然后才调用load。
+3、如 looger的配置是"/root/my_skynet/logs/game_1.log，但启动时， 没有在my_skynet文件夹
+    下建立logs文件夹的话，服务启动会失败，所以启动脚本应该检测./下面是否有logs文件夹，
+    没有需要建立。
+
+

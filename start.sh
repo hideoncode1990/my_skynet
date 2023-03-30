@@ -4,6 +4,11 @@ export ROOT=$(
 	pwd
 )
 
+logpath=$ROOT/logs
+
+if [ ! -d $logpath ]; then
+	mkdir $logpath
+fi
 # function die() {
 # 	if [ $2 -eq 0 ]  ;then
 # 		echo "$1" && exit 0
