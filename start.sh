@@ -4,10 +4,14 @@ export ROOT=$(
 	pwd
 )
 
-logpath=$ROOT/logs
+export logpath=$ROOT/logs
 
 if [ ! -d $logpath ]; then
 	mkdir $logpath
+fi
+
+if [ ! -d cservice ]; then
+	mkdir cservice
 fi
 # function die() {
 # 	if [ $2 -eq 0 ]  ;then
@@ -63,5 +67,5 @@ str="
 	return result
 "
 #${ROOT}/skynet/3rd/lua/lua -e "$str"
-
+make all
 $ROOT/skynet/skynet $ROOT/servercfg/$node_type.config $node_type

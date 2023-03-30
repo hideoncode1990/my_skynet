@@ -1,0 +1,1 @@
+return {supply = 1}

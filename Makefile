@@ -15,6 +15,10 @@ LUA_INC ?= $(SKYNET)/3rd/lua
 CSERVICE_PATH ?= cservice
 
 all: $(CSERVICE_PATH)/logger.so
+	cd ./$(SKYNET)&& make linux
 
-$(CSERVICE_PATH)/logger.so: src/srvice_logger.c
-	$$(CC) $$(CFLAGS) $$(SHARED) $$< -o $$@ -I$(SKYNET)/skynet-src
+$(CSERVICE_PATH)/logger.so: src/service_logger.c
+	$(CC) $(CFLAGS) $(SHARED) $< -o $@ -I$(SKYNET)/skynet-src
+
+#$(SKYNET):
+# cd ($SKYNET)&& make linux
