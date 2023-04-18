@@ -1,4 +1,4 @@
-CC ?= gcc
+CC = gcc
 
 CFLAGS = -g -O2 -Wall -I$(LUA_INC) $(MYCFLAGS)
 SHARED := -fPIC --shared
